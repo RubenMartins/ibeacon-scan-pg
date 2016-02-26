@@ -9,6 +9,7 @@ var app = (function()
 		// Estimote Beacon factory UUID.
 		{uuid:'B9407F30-F5F8-466E-AFF9-25556B57FE6D'},
 		// Sample UUIDs for beacons in our lab.
+		{uuid:'B7E833FD-49D1-49AD-8B23-8C9C5D5B67DE'},
 		{uuid:'F7826DA6-4FA2-4E98-8024-BC5B71E0893E'},
 		{uuid:'8DEEFBB9-F738-4297-8040-96668BB44281'},
 		{uuid:'A0B13730-3A9A-11E3-AA6E-0800200C9A66'},
