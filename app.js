@@ -153,6 +153,7 @@ var app = (function()
 					+	'Distance: ' + beacon.distance + '<br />'
 					+	'MacAddress: ' + beacon.macAddress + '<br />'
 					+	'MeasuredPower: ' + beacon.measuredPower + '<br />'
+					+	'ALL: ' + beacon + '<br />'
 					+	'RSSI: ' + beacon.rssi + '<br />'
 					+ 	'<div style="background:rgb(255,128,64);height:20px;width:'
 					+ 		rssiWidth + '%;"></div>'
