@@ -150,13 +150,16 @@ var app = (function()
 					+	'Major: ' + beacon.major + '<br />'
 					+	'Minor: ' + beacon.minor + '<br />'
 					+	'Proximity: ' + beacon.proximity + '<br />'
+					+	'Distance: ' + beacon.distance + '<br />'
+					+	'MacAddress: ' + beacon.macAddress + '<br />'
+					+	'MeasuredPower: ' + beacon.measuredPower + '<br />'
 					+	'RSSI: ' + beacon.rssi + '<br />'
 					+ 	'<div style="background:rgb(255,128,64);height:20px;width:'
 					+ 		rssiWidth + '%;"></div>'
 					+ '</li>'
 				);
 
-				$('#warning').remove();
+				$('#warning, #fountainG').remove();
 				$('#found-beacons').append(element);
 			}
 		});
