@@ -1,1 +1,1 @@
-# ibeacon-scan-phonegap
+# ibeacon-scan-pg
