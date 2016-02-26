@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.smartinfo.app"
+        id        = "com.rubenmartins.ibeaconscan"
         version   = "0.1.0">	
 	
     <name>iBeacon Scanner</name>
