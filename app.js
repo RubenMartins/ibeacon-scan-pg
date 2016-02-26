@@ -8,8 +8,9 @@ var app = (function()
 	[
 		// Estimote Beacon factory UUID.
 		{uuid:'B9407F30-F5F8-466E-AFF9-25556B57FE6D'},
+		// Main beacons tested
+		{uuid:'B7E833FD-49D1-49AD-8B23-8C9C5D5B67DE'},
 		// Sample UUIDs for beacons in our lab.
-		//{uuid:'B7E833FD-49D1-49AD-8B23-8C9C5D5B67DE'},
 		{uuid:'F7826DA6-4FA2-4E98-8024-BC5B71E0893E'},
 		{uuid:'8DEEFBB9-F738-4297-8040-96668BB44281'},
 		{uuid:'A0B13730-3A9A-11E3-AA6E-0800200C9A66'},
@@ -49,42 +50,7 @@ var app = (function()
 		// Display refresh timer.
 		updateTimer = setInterval(displayBeaconList, 500);
 	}
-	function startScan()
-	{
-		function onBeaconsRanged(beaconInfo)
-		{
-			//console.log('onBeaconsRanged: ' + JSON.stringify(beaconInfo))
-			for (var i in beaconInfo.beacons)
-			{
-				// Insert beacon into table of found beacons.
-				// Filter out beacons with invalid RSSI values.
-				var beacon = beaconInfo.beacons[i];
-				if (beacon.rssi < 0)
-				{
-					beacon.timeStamp = Date.now();
-					var key = beacon.uuid + ':' + beacon.major + ':' + beacon.minor;
-					beacons[key] = beacon;
-				}
-			}
-		}
 
-		function onError(errorMessage)
-		{
-			console.log('Ranging beacons did fail: ' + errorMessage);
-		}
-
-		// Request permission from user to access location info.
-		// This is needed on iOS 8.
-		locationManager.requestAlwaysAuthorization();
-
-		// Start ranging beacons.
-		locationManager.startRangingBeaconsInRegion(
-			{}, // Empty region matches all beacons
-			    // with the Estimote factory set UUID.
-			onBeaconsRanged,
-			onError);
-	}
-	/*
 	function startScan()
 	{
 		// The delegate object holds the iBeacon callback functions
@@ -158,7 +124,7 @@ var app = (function()
 				.fail(console.error)
 				.done();
 		}
-	}*/
+	}
 
 	function displayBeaconList()
 	{
