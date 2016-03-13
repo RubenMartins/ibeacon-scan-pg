@@ -98,7 +98,19 @@ var app = (function()
 				}
 			}
 		};
-
+		
+		locationManager.isBluetoothEnabled()
+			.then(function(isEnabled){
+				console.log("isEnabled: " + isEnabled);
+				if (isEnabled) {
+					//cordova.plugins.locationManager.disableBluetooth();
+				} else {
+					cordova.plugins.locationManager.enableBluetooth();        
+				}
+			})
+			.fail(console.error)
+			.done();
+		
 		// Set the delegate object to use.
 		locationManager.setDelegate(delegate);
 
