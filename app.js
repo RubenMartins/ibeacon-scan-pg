@@ -30,17 +30,20 @@ var app = (function()
 
 	// Timer that displays list of beacons.
 	var updateTimer = null;
-
+	
+	//evothings.scriptsLoaded(onDeviceReady)
+	
 	app.initialize = function()
 	{
 		document.addEventListener(
 			'deviceready',
-			function() { evothings.scriptsLoaded(onDeviceReady) },
+			function() { onDeviceReady() },
 			false);
 	};
 
 	function onDeviceReady()
 	{
+		alert('startScan');
 		// Specify a shortcut for the location manager holding the iBeacon functions.
 		window.locationManager = cordova.plugins.locationManager;
 
