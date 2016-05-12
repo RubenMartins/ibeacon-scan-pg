@@ -22,7 +22,7 @@
 	<script src="libs/jquery/jquery.js"></script>
 	<!--script src="libs/evothings/evothings.js"></script>
 	<script src="libs/evothings/ui/ui.js"></script-->
-	<!--script src="app.js"></script-->
+	<script src="app.js"></script>
 
 </head>
 
@@ -50,29 +50,6 @@
 	<ul id="found-beacons" class="dynamic"></ul>
 	
 	<footer>Dev. Rúben Martins</footer>
-	<script>
-        document.addEventListener('deviceready', function() { 
-        	alert('lets get bleacons');
-		//keep app awake
-		//window.plugins.insomnia.keepAwake();
-		//start monitoring
-		//var bMonitor = new BeaconMonitor();
-		var Bleacon = require('bleacon');
-		
-		Bleacon.startScanning('B7E833FD-49D1-49AD-8B23-8C9C5D5B67DE');
-            
-            	Bleacon.on('discover', function(bleacon) {
-			alert('beacon discovered muahahahaha');
-			alert(bleacon);
-		});
-            
-		//bMonitor.onDeviceReady();
-		//reset values and displays when resuming app after pausing/using other apps
-		/*document.addEventListener("resume", function() {
-		bMonitor.resetReadings();
-		}, false);*/
-        } , false);
-        </script>
 </body>
 
 </html>
