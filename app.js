@@ -7,16 +7,16 @@ var app = (function()
 	var regions =
 	[
 		// Estimote Beacon factory UUID.
-		{uuid:'B9407F30-F5F8-466E-AFF9-25556B57FE6D'},
+		//{uuid:'B9407F30-F5F8-466E-AFF9-25556B57FE6D'},
 		// Main beacons tested
-		{uuid:'B7E833FD-49D1-49AD-8B23-8C9C5D5B67DE'},
+		{uuid:'B7E833FD-49D1-49AD-8B23-8C9C5D5B67DE', major: 1, minor: 15045},
 		// Sample UUIDs for beacons in our lab.
-		{uuid:'F7826DA6-4FA2-4E98-8024-BC5B71E0893E'},
-		{uuid:'8DEEFBB9-F738-4297-8040-96668BB44281'},
-		{uuid:'A0B13730-3A9A-11E3-AA6E-0800200C9A66'},
-		{uuid:'E20A39F4-73F5-4BC4-A12F-17D1AD07A961'},
-		{uuid:'A4950001-C5B1-4B44-B512-1370F02D74DE'},
-		{uuid:'585CDE93-1B01-42CC-9A13-25009BEDC65E'},	// Dialog Semiconductor.
+		//{uuid:'F7826DA6-4FA2-4E98-8024-BC5B71E0893E'},
+		//{uuid:'8DEEFBB9-F738-4297-8040-96668BB44281'},
+		//{uuid:'A0B13730-3A9A-11E3-AA6E-0800200C9A66'},
+		//{uuid:'E20A39F4-73F5-4BC4-A12F-17D1AD07A961'},
+		//{uuid:'A4950001-C5B1-4B44-B512-1370F02D74DE'},
+		//{uuid:'585CDE93-1B01-42CC-9A13-25009BEDC65E'},	// Dialog Semiconductor.
 	];
 
 	// Background detection.
