@@ -27,9 +27,12 @@ var app = (function()
 
 	// Dictionary of beacons.
 	var beacons = {};
+	
+	var inSearch = 0;
 
 	// Timer that displays list of beacons.
 	var updateTimer = null;
+	var updateTimerSearch = null;
 	
 	//evothings.scriptsLoaded(onDeviceReady)
 	
@@ -52,8 +55,30 @@ var app = (function()
 
 		// Display refresh timer.
 		updateTimer = setInterval(displayBeaconList, 1000);
+		updateTimerSearch = setInterval(startStopSearch, 3000);
 	}
+	
+	function startStopSearch(){
+		alert('startStopSearch');
+		alert(inSearch);
+		
+		/*if(inSearch==1){
+			
+		} else {
+			
+			inSearch = 1;
+		}*/
+		var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(
+			0, regions[i].uuid, regions[i].major, regions[i].minor);
 
+		// Start ranging.
+		cordova.plugins.locationManager.stopRangingBeaconsInRegion(beaconRegion)
+			.fail(console.error)
+			.done();
+			
+		alert('stoped ranging');
+	}
+	
 	function startScan()
 	{
 		// The delegate object holds the iBeacon callback functions
