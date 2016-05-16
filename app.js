@@ -63,11 +63,12 @@ var app = (function()
 		alert(inSearch);
 		
 		if(inSearch==0){
-			var beaconRegion = new locationManager.BeaconRegion(
+			alert('try to stop');
+			var beaconRegionnnn = new locationManager.BeaconRegion(
 				0, regions[i].uuid, regions[i].major, regions[i].minor);
-	
-			// Start ranging.
-			locationManager.stopRangingBeaconsInRegion(beaconRegion)
+			alert('try to stop 2');
+			
+			locationManager.stopRangingBeaconsInRegion(beaconRegionnnn)
 				.fail(console.error)
 				.done();
 				
