@@ -20,10 +20,10 @@ var app = (function()
 	];
 
 	// Background detection.
-	var notificationID = 0;
-	var inBackground = false;
-	document.addEventListener('pause', function() { inBackground = true });
-	document.addEventListener('resume', function() { inBackground = false });
+	//var notificationID = 0;
+	//var inBackground = false;
+	//document.addEventListener('pause', function() { inBackground = true });
+	//document.addEventListener('resume', function() { inBackground = false });
 
 	// Dictionary of beacons.
 	var beacons = {};
@@ -51,7 +51,7 @@ var app = (function()
 		startScan();
 
 		// Display refresh timer.
-		updateTimer = setInterval(displayBeaconList, 2000);
+		updateTimer = setInterval(displayBeaconList, 1000);
 	}
 
 	function startScan()
@@ -63,6 +63,7 @@ var app = (function()
 		// Called continuously when ranging beacons.
 		delegate.didRangeBeaconsInRegion = function(pluginResult)
 		{
+			alert('didRangeBeaconsInRegion');
 			//console.log('didRangeBeaconsInRegion: ' + JSON.stringify(pluginResult))
 			for (var i in pluginResult.beacons)
 			{
@@ -78,6 +79,7 @@ var app = (function()
 		// (Not used in this example, included as a reference.)
 		delegate.didStartMonitoringForRegion = function(pluginResult)
 		{
+			alert('didStartMonitoringForRegion');
 			//console.log('didStartMonitoringForRegion:' + JSON.stringify(pluginResult))
 		};
 
@@ -85,7 +87,8 @@ var app = (function()
 		// If we are in the background, a notification is shown.
 		delegate.didDetermineStateForRegion = function(pluginResult)
 		{
-			if (inBackground)
+			alert('didDetermineStateForRegion');
+			/*if (inBackground)
 			{
 				// Show notification if a beacon is inside the region.
 				// TODO: Add check for specific beacon(s) in your app.
@@ -99,7 +102,7 @@ var app = (function()
 							text: 'iBeacon Scan detected a beacon, tap here to open app.'
 						});
 				}
-			}
+			}*/
 		};
 		
 		locationManager.isBluetoothEnabled()
@@ -136,9 +139,10 @@ var app = (function()
 
 			// Start monitoring.
 			// (Not used in this example, included as a reference.)
+			/*
 			locationManager.startMonitoringForRegion(beaconRegion)
 				.fail(console.error)
-				.done();
+				.done();*/
 		}
 	}
 
