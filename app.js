@@ -51,7 +51,7 @@ var app = (function()
 		startScan();
 
 		// Display refresh timer.
-		updateTimer = setInterval(displayBeaconList, 500);
+		updateTimer = setInterval(displayBeaconList, 2000);
 	}
 
 	function startScan()
@@ -124,9 +124,10 @@ var app = (function()
 		// Start monitoring and ranging beacons.
 		for (var i in regions)
 		{
+			alert('region '+i);
 			var beaconRegion = new locationManager.BeaconRegion(
 				i + 1,
-				regions[i].uuid);
+				regions[i].uuid, regions[i].major, regions[i].minor);
 
 			// Start ranging.
 			locationManager.startRangingBeaconsInRegion(beaconRegion)
