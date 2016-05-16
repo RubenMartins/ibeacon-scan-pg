@@ -159,7 +159,34 @@ var app = (function()
 				.fail(console.error)
 				.done();
 				
-			updateTimerSearch = setInterval(startStopSearch(beaconRegion), 3000);
+			//updateTimerSearch = setInterval(startStopSearch(beaconRegion), 3000
+			setInterval(function (){
+				alert('startStopSearch');
+				alert(inSearch);
+				
+				if(inSearch==0){
+					alert('try to stop');
+					/*var beaconRegionnnn = new locationManager.BeaconRegion(
+						0, regions[i].uuid, regions[i].major, regions[i].minor);*/
+					alert(beaconRegion);
+					
+					locationManager.stopRangingBeaconsInRegion(beaconRegion)
+						.fail(console.error)
+						.done();
+						
+					alert('stoped ranging');
+					inSearch=1;
+				} else {
+					alert('try to start');
+					locationManager.startRangingBeaconsInRegion(beaconRegion)
+						.fail(console.error)
+						.done();
+					alert('started again..');
+					inSearch=0;
+				}
+			}
+			, 2000);
+			
 
 			// Start monitoring.
 			// (Not used in this example, included as a reference.)
