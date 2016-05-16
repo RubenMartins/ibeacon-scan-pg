@@ -55,20 +55,19 @@ var app = (function()
 
 		// Display refresh timer.
 		updateTimer = setInterval(displayBeaconList, 1000);
-		updateTimerSearch = setInterval(startStopSearch, 3000);
 	}
 	
-	function startStopSearch(){
+	function startStopSearch(beaconRegionsss){
 		alert('startStopSearch');
 		alert(inSearch);
 		
 		if(inSearch==0){
 			alert('try to stop');
-			var beaconRegionnnn = new locationManager.BeaconRegion(
-				0, regions[i].uuid, regions[i].major, regions[i].minor);
-			alert('try to stop 2');
+			/*var beaconRegionnnn = new locationManager.BeaconRegion(
+				0, regions[i].uuid, regions[i].major, regions[i].minor);*/
+			alert(beaconRegionsss);
 			
-			locationManager.stopRangingBeaconsInRegion(beaconRegionnnn)
+			locationManager.stopRangingBeaconsInRegion(beaconRegionsss)
 				.fail(console.error)
 				.done();
 				
@@ -159,6 +158,8 @@ var app = (function()
 			locationManager.startRangingBeaconsInRegion(beaconRegion)
 				.fail(console.error)
 				.done();
+				
+			updateTimerSearch = setInterval(startStopSearch(beaconRegion), 3000);
 
 			// Start monitoring.
 			// (Not used in this example, included as a reference.)
