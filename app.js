@@ -62,21 +62,18 @@ var app = (function()
 		alert('startStopSearch');
 		alert(inSearch);
 		
-		/*if(inSearch==1){
-			
-		} else {
-			
-			inSearch = 1;
-		}*/
-		var beaconRegion = new cordova.plugins.locationManager.BeaconRegion(
-			0, regions[i].uuid, regions[i].major, regions[i].minor);
-
-		// Start ranging.
-		cordova.plugins.locationManager.stopRangingBeaconsInRegion(beaconRegion)
-			.fail(console.error)
-			.done();
-			
-		alert('stoped ranging');
+		if(inSearch==0){
+			var beaconRegion = new locationManager.BeaconRegion(
+				0, regions[i].uuid, regions[i].major, regions[i].minor);
+	
+			// Start ranging.
+			locationManager.stopRangingBeaconsInRegion(beaconRegion)
+				.fail(console.error)
+				.done();
+				
+			alert('stoped ranging');
+			inSearch=1;
+		}
 	}
 	
 	function startScan()
@@ -88,7 +85,7 @@ var app = (function()
 		// Called continuously when ranging beacons.
 		delegate.didRangeBeaconsInRegion = function(pluginResult)
 		{
-			alert('didRangeBeaconsInRegion');
+			//alert('didRangeBeaconsInRegion');
 			//console.log('didRangeBeaconsInRegion: ' + JSON.stringify(pluginResult))
 			for (var i in pluginResult.beacons)
 			{
